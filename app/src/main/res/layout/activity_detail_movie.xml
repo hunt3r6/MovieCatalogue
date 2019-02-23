@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".DetailMovieActivity">
+
+    <ImageView
+        android:id="@+id/img_detail_poster"
+        android:layout_width="400px"
+        android:layout_height="590px"
+        android:src="@drawable/poster_venom"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/tv_detail_judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/img_detail_poster"
+        android:text="Judul Film"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_detail_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_detail_judul"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/img_detail_poster"
+        android:text="December 2, 2018"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/tv_detail_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/img_detail_poster"
+        android:layout_below="@id/tv_detail_date"/>
+
+</RelativeLayout>
