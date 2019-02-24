@@ -1,6 +1,9 @@
 package com.taraskode.moviecatalogue;
 
-public class Movie {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Movie implements Parcelable {
     private String judulFilm;
     private String description;
     private String date;
@@ -37,4 +40,40 @@ public class Movie {
     public void setDate(String date) {
         this.date = date;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.judulFilm);
+        dest.writeString(this.description);
+        dest.writeString(this.date);
+        dest.writeInt(this.poster);
+    }
+
+    public Movie() {
+    }
+
+    protected Movie(Parcel in) {
+        this.judulFilm = in.readString();
+        this.description = in.readString();
+        this.date = in.readString();
+        this.poster = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel source) {
+            return new Movie(source);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
 }

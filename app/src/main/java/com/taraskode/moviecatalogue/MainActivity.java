@@ -33,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent detailIntentMovie = new Intent(MainActivity.this, DetailMovieActivity.class);
-                detailIntentMovie.putExtra(DetailMovieActivity.EXTRA_JUDUL, dataJudul[i]);
-                detailIntentMovie.putExtra(DetailMovieActivity.EXTRA_DESCRIPTION, dataDescription[i]);
-                detailIntentMovie.putExtra(DetailMovieActivity.EXTRA_DATE, dataDate[i]);
-                detailIntentMovie.putExtra(DetailMovieActivity.EXTRA_POSTER, dataPoster.getResourceId(i, -1));
-                startActivity(detailIntentMovie);
+                Movie movie = new Movie();
+                movie.setJudulFilm(dataJudul[i]);
+                movie.setDescription(dataDescription[i]);
+                movie.setDate(dataDate[i]);
+                movie.setPoster(dataPoster.getResourceId(i, -1));
+                Intent detailMovieIntent = new Intent(MainActivity.this, DetailMovieActivity.class);
+                detailMovieIntent.putExtra(DetailMovieActivity.EXTRA_FILM, movie);
+                startActivity(detailMovieIntent);
 
             }
         });

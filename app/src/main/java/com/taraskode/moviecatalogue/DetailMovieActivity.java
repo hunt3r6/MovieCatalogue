@@ -6,10 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailMovieActivity extends AppCompatActivity {
-    public static final String EXTRA_JUDUL = "extra_judul";
-    public static final String EXTRA_DESCRIPTION = "extra_description";
-    public static final String EXTRA_DATE = "extra_date";
-    public static final String EXTRA_POSTER = "extra_poster";
+    public static final String EXTRA_FILM = "extra_film";
     TextView tvJudul, tvDescription, tvDate;
     ImageView imgPoster;
 
@@ -24,15 +21,13 @@ public class DetailMovieActivity extends AppCompatActivity {
         tvDate = findViewById(R.id.tv_detail_date);
         imgPoster = findViewById(R.id.img_detail_poster);
 
-        String judul = getIntent().getStringExtra(EXTRA_JUDUL);
-        String description = getIntent().getStringExtra(EXTRA_DESCRIPTION);
-        String date = getIntent().getStringExtra(EXTRA_DATE);
-        int poster = getIntent().getIntExtra(EXTRA_POSTER, 0);
+        Movie movie = getIntent().getParcelableExtra(EXTRA_FILM);
+        tvJudul.setText(movie.getJudulFilm());
+        tvDescription.setText(movie.getDescription());
+        tvDate.setText(movie.getDate());
+        imgPoster.setImageResource(movie.getPoster());
 
-        tvJudul.setText(judul);
-        tvDescription.setText(description);
-        tvDate.setText(date);
-        imgPoster.setImageResource(poster);
+
 
     }
 }
